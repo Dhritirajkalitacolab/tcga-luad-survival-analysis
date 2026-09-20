@@ -1,0 +1,25 @@
+Loading required package: Matrix
+Loaded glmnet 5.0
+
+ randomForestSRC 3.6.2 
+ 
+ Type rfsrc.news() to see new features, changes, and bug fixes. 
+ 
+
+Refit candidate pool: 20 genes (was 158)
+There were 11 warnings (use warnings() to see them)
+lambda.1se selected 0 genes -> fell back to lambda.min
+Refined signature: 5 genes -> ENSG00000133466, ENSG00000147689, ENSG00000109674, ENSG00000272068, ENSG00000126787
+
+===== BEFORE vs AFTER =====
+Original LASSO (158 genes, lambda.min): train=0.722  test=0.538
+Refined  LASSO ( 5 genes, stricter):     train=0.713  test=0.541
+RSF (original 11 genes) test C-index:    0.437
+
+===== FINAL VERDICT (no further tuning after this) =====
+Refined signature STILL does not validate meaningfully above chance.
+Conclusion: with n=496 patients / 123 events, this cohort likely lacks power
+for a robust transcriptomic prognostic signature. Report as a genuine, honest
+negative finding — this is valid, defensible science, not a failure.
+
+Saved p2_refinement.rds

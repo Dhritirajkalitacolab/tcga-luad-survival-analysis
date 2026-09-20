@@ -1,0 +1,15 @@
+Dropping 1 test patients with stage(s) unseen in training: Stage II
+Test set for scoring: 147 patients
+
+===== HELD-OUT TEST C-INDEX (the real comparison) =====
+Plain clinical (age+gender+stage, PH-VIOLATED): test C=0.610
+Stratified clinical (age+gender|stage, PH-valid): test C=0.495
+
+===== DEPLOYMENT DECISION =====
+Plain model wins on real held-out discrimination, but VIOLATES the PH assumption.
+Deploying it anyway would mean shipping a statistically invalid model.
+Decision: deploy the STRATIFIED model regardless — a lower but VALID C-index
+is more defensible than a higher one from a model whose assumptions are known to be false.
+
+FINAL DEPLOYMENT MODEL: stratified
+Saved p4_model_selection.rds

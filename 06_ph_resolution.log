@@ -1,0 +1,105 @@
+Loading required package: ggplot2
+Loading required package: ggpubr
+
+Attaching package: ‘survminer’
+
+The following object is masked from ‘package:survival’:
+
+    myeloma
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Saved p2_setup_v2.rds (gender-corrected copy; original p2_setup.rds left untouched)
+
+===== EVENTS PER STAGE =====
+# A tibble: 8 × 3
+  ajcc_pathologic_stage     n events
+  <fct>                 <int>  <dbl>
+1 Stage I                   5      1
+2 Stage IA                 84     17
+3 Stage IB                 93     25
+4 Stage IIA                36     17
+5 Stage IIB                43     22
+6 Stage IIIA               54     27
+7 Stage IIIB                5      3
+8 Stage IV                 19     11
+
+===== STRATIFIED COX (primary, PH-safe) =====
+Call:
+coxph(formula = Surv(OS.time, OS) ~ age_years + gender + strata(ajcc_pathologic_stage), 
+    data = train_surv)
+
+  n= 339, number of events= 123 
+   (9 observations deleted due to missingness)
+
+              coef exp(coef) se(coef)     z Pr(>|z|)
+age_years  0.01194   1.01201  0.01002 1.191    0.234
+gendermale 0.23508   1.26501  0.19159 1.227    0.220
+
+           exp(coef) exp(-coef) lower .95 upper .95
+age_years      1.012     0.9881    0.9923     1.032
+gendermale     1.265     0.7905    0.8690     1.842
+
+Concordance= 0.532  (se = 0.036 )
+Likelihood ratio test= 2.88  on 2 df,   p=0.2
+Wald test            = 2.82  on 2 df,   p=0.2
+Score (logrank) test = 2.83  on 2 df,   p=0.2
+
+
+===== PH TEST — STRATIFIED MODEL =====
+          chisq df    p
+age_years 0.226  1 0.63
+gender    0.276  1 0.60
+GLOBAL    0.511  2 0.77
+
+===== AFT MODEL (Weibull) — stage effect preserved =====
+
+Call:
+survreg(formula = Surv(OS.time, OS) ~ age_years + gender + ajcc_pathologic_stage, 
+    data = train_surv, dist = "weibull")
+                                   Value Std. Error     z      p
+(Intercept)                      9.43518    0.88116 10.71 <2e-16
+age_years                       -0.01206    0.00795 -1.52 0.1296
+gendermale                      -0.18456    0.15207 -1.21 0.2249
+ajcc_pathologic_stageStage IA   -0.30531    0.85810 -0.36 0.7220
+ajcc_pathologic_stageStage IB   -0.55134    0.85016 -0.65 0.5167
+ajcc_pathologic_stageStage IIA  -1.51422    0.85571 -1.77 0.0768
+ajcc_pathologic_stageStage IIB  -1.31348    0.84992 -1.55 0.1222
+ajcc_pathologic_stageStage IIIA -1.47516    0.84594 -1.74 0.0812
+ajcc_pathologic_stageStage IIIB -1.98144    0.93918 -2.11 0.0349
+ajcc_pathologic_stageStage IV   -1.47291    0.87618 -1.68 0.0928
+Log(scale)                      -0.21200    0.06937 -3.06 0.0022
+
+Scale= 0.809 
+
+Weibull distribution
+Loglik(model)= -1048.8   Loglik(intercept only)= -1075
+	Chisq= 52.44 on 9 degrees of freedom, p= 3.7e-08 
+Number of Newton-Raphson Iterations: 8 
+n=339 (9 observations deleted due to missingness)
+
+
+===== PH TEST — COLLAPSED STAGE (I/II/III/IV) =====
+              chisq df    p
+age_years     0.991  1 0.32
+gender        0.225  1 0.64
+stage_grouped 5.461  3 0.14
+GLOBAL        6.786  5 0.24
+
+===== VERDICT =====
+Granular stage PH p-value:  0.037 (violated)
+Collapsed stage PH p-value: 0.141 (OK — sparsity was a likely driver)
+Reporting strategy: use the STRATIFIED Cox model as the primary clinical model
+(age/gender HRs valid, PH-compliant by design). Report stage's direction and
+magnitude from the AFT model, with the original PH caveat disclosed in the write-up.
+
+Saved p2_ph_resolution.rds

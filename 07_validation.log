@@ -1,0 +1,33 @@
+Loading required package: Matrix
+Loaded glmnet 5.0
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+===== RISK GROUP SPLIT (test set) =====
+
+High  Low 
+  75   73 
+
+===== C-INDEX =====
+Train: 0.722
+Test:  0.538
+Drop (train - test): 0.184 (large drop -> watch for overfitting)
+
+Evaluating AUC at: 365, 1095, 1825 days
+
+===== TIME-DEPENDENT AUC (test set) =====
+    t=365    t=1095    t=1825 
+0.4926691 0.6450764 0.5057909 
+
+===== KM LOGRANK (High vs Low risk, test set) =====
+chisq=0.69  p=0.4078
+
+===== VALIDATION COMPLETE — saved p2_validation.rds =====

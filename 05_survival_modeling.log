@@ -1,0 +1,100 @@
+Loading required package: ggplot2
+Loading required package: ggpubr
+
+Attaching package: ‘survminer’
+
+The following object is masked from ‘package:survival’:
+
+    myeloma
+
+Loading required package: Matrix
+Loaded glmnet 5.0
+
+ randomForestSRC 3.6.2 
+ 
+ Type rfsrc.news() to see new features, changes, and bug fixes. 
+ 
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Running univariate Cox on 500 genes...
+Univariate genes carried forward: 158
+Clinical Cox uses 339/348 patients (9 dropped for missing data)
+
+===== CLINICAL COX SUMMARY =====
+Call:
+coxph(formula = Surv(OS.time, OS) ~ age_years + gender + ajcc_pathologic_stage, 
+    data = train_surv)
+
+  n= 339, number of events= 123 
+   (9 observations deleted due to missingness)
+
+                                   coef exp(coef) se(coef)     z Pr(>|z|)  
+age_years                       0.01314   1.01322  0.00978 1.343    0.179  
+gendermale                      0.24915   1.28293  0.18834 1.323    0.186  
+ajcc_pathologic_stageStage IA   0.01475   1.01486  1.07794 0.014    0.989  
+ajcc_pathologic_stageStage IB   0.29730   1.34622  1.07151 0.277    0.781  
+ajcc_pathologic_stageStage IIA  1.43080   4.18205  1.08714 1.316    0.188  
+ajcc_pathologic_stageStage IIB  1.20704   3.34357  1.08038 1.117    0.264  
+ajcc_pathologic_stageStage IIIA 1.43080   4.18206  1.07422 1.332    0.183  
+ajcc_pathologic_stageStage IIIB 2.10620   8.21698  1.19100 1.768    0.077 .
+ajcc_pathologic_stageStage IV   1.42868   4.17321  1.10857 1.289    0.197  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                                exp(coef) exp(-coef) lower .95 upper .95
+age_years                           1.013     0.9869    0.9940     1.033
+gendermale                          1.283     0.7795    0.8869     1.856
+ajcc_pathologic_stageStage IA       1.015     0.9854    0.1227     8.394
+ajcc_pathologic_stageStage IB       1.346     0.7428    0.1648    10.995
+ajcc_pathologic_stageStage IIA      4.182     0.2391    0.4966    35.218
+ajcc_pathologic_stageStage IIB      3.344     0.2991    0.4023    27.786
+ajcc_pathologic_stageStage IIIA     4.182     0.2391    0.5093    34.338
+ajcc_pathologic_stageStage IIIB     8.217     0.1217    0.7960    84.819
+ajcc_pathologic_stageStage IV       4.173     0.2396    0.4752    36.651
+
+Concordance= 0.693  (se = 0.028 )
+Likelihood ratio test= 47  on 9 df,   p=4e-07
+Wald test            = 43.7  on 9 df,   p=2e-06
+Score (logrank) test = 49.12  on 9 df,   p=2e-07
+
+
+===== PH ASSUMPTION TEST =====
+                       chisq df     p
+age_years              0.909  1 0.340
+gender                 0.148  1 0.700
+ajcc_pathologic_stage 14.915  7 0.037
+GLOBAL                15.192  9 0.086
+There were 11 warnings (use warnings() to see them)
+
+===== LASSO RESULT =====
+Genes selected: 11
+ [1] "ENSG00000147689" "ENSG00000182010" "ENSG00000126787" "ENSG00000205213"
+ [5] "ENSG00000171132" "ENSG00000109674" "ENSG00000137203" "ENSG00000133466"
+ [9] "ENSG00000134201" "ENSG00000272068" "ENSG00000165548"
+
+Running RSF (this can take a few minutes)...
+
+===== RSF TOP VARIABLES =====
+                       Variable  Importance
+ENSG00000147689 ENSG00000147689 0.095922888
+ENSG00000133466 ENSG00000133466 0.083086745
+ENSG00000272068 ENSG00000272068 0.038093691
+ENSG00000126787 ENSG00000126787 0.018701929
+ENSG00000205213 ENSG00000205213 0.018280551
+ENSG00000109674 ENSG00000109674 0.013600624
+ENSG00000137203 ENSG00000137203 0.008261967
+ENSG00000171132 ENSG00000171132 0.007904783
+ENSG00000165548 ENSG00000165548 0.006900693
+ENSG00000182010 ENSG00000182010 0.006208161
+
+===== P2 CORE COMPLETE — saved p2_models.rds =====

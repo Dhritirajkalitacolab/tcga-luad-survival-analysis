@@ -1,0 +1,316 @@
+Setting options('download.file.method.GEOquery'='auto')
+Setting options('GEOquery.inmemory.gpl'=FALSE)
+Loading required package: Biobase
+Loading required package: BiocGenerics
+Loading required package: generics
+
+Attaching package: ‘generics’
+
+The following objects are masked from ‘package:base’:
+
+    as.difftime, as.factor, as.ordered, intersect, is.element, setdiff,
+    setequal, union
+
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, is.unsorted, lapply, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
+    unsplit, which.max, which.min
+
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Downloading GSE31210 (this may take a few minutes)...
+Found 1 file(s)
+GSE31210_series_matrix.txt.gz
+Downloaded: 246 samples, 54675 probes
+
+===== AVAILABLE PHENOTYPE COLUMNS =====
+ [1] "title"                                                                             
+ [2] "geo_accession"                                                                     
+ [3] "status"                                                                            
+ [4] "submission_date"                                                                   
+ [5] "last_update_date"                                                                  
+ [6] "type"                                                                              
+ [7] "channel_count"                                                                     
+ [8] "source_name_ch1"                                                                   
+ [9] "organism_ch1"                                                                      
+[10] "characteristics_ch1"                                                               
+[11] "characteristics_ch1.1"                                                             
+[12] "characteristics_ch1.2"                                                             
+[13] "characteristics_ch1.3"                                                             
+[14] "characteristics_ch1.4"                                                             
+[15] "characteristics_ch1.5"                                                             
+[16] "characteristics_ch1.6"                                                             
+[17] "characteristics_ch1.7"                                                             
+[18] "characteristics_ch1.8"                                                             
+[19] "characteristics_ch1.9"                                                             
+[20] "characteristics_ch1.10"                                                            
+[21] "characteristics_ch1.11"                                                            
+[22] "characteristics_ch1.12"                                                            
+[23] "characteristics_ch1.13"                                                            
+[24] "characteristics_ch1.14"                                                            
+[25] "characteristics_ch1.15"                                                            
+[26] "characteristics_ch1.16"                                                            
+[27] "characteristics_ch1.17"                                                            
+[28] "characteristics_ch1.18"                                                            
+[29] "molecule_ch1"                                                                      
+[30] "extract_protocol_ch1"                                                              
+[31] "label_ch1"                                                                         
+[32] "label_protocol_ch1"                                                                
+[33] "taxid_ch1"                                                                         
+[34] "hyb_protocol"                                                                      
+[35] "scan_protocol"                                                                     
+[36] "description"                                                                       
+[37] "data_processing"                                                                   
+[38] "platform_id"                                                                       
+[39] "contact_name"                                                                      
+[40] "contact_email"                                                                     
+[41] "contact_institute"                                                                 
+[42] "contact_address"                                                                   
+[43] "contact_city"                                                                      
+[44] "contact_zip/postal_code"                                                           
+[45] "contact_country"                                                                   
+[46] "supplementary_file"                                                                
+[47] "data_row_count"                                                                    
+[48] "age (years):ch1"                                                                   
+[49] "age:ch1"                                                                           
+[50] "bi:ch1"                                                                            
+[51] "cluster:ch1"                                                                       
+[52] "days before death/censor:ch1"                                                      
+[53] "days before relapse/censor:ch1"                                                    
+[54] "death:ch1"                                                                         
+[55] "exclude for prognosis analysis due to incomplete resection or adjuvant therapy:ch1"
+[56] "gender:ch1"                                                                        
+[57] "gene alteration status:ch1"                                                        
+[58] "group:ch1"                                                                         
+[59] "months before relapse/censor:ch1"                                                  
+[60] "myc_copy:ch1"                                                                      
+[61] "myc:ch1"                                                                           
+[62] "pathological stage:ch1"                                                            
+[63] "pstage iorii:ch1"                                                                  
+[64] "relapse:ch1"                                                                       
+[65] "smoking status:ch1"                                                                
+[66] "tissue:ch1"                                                                        
+
+===== FIRST 3 ROWS (all columns) =====
+          title geo_accession                status submission_date
+GSM773540 KH024     GSM773540 Public on Nov 01 2011     Aug 04 2011
+GSM773541 KH081     GSM773541 Public on Nov 01 2011     Aug 04 2011
+GSM773542 KH007     GSM773542 Public on Nov 01 2011     Aug 04 2011
+          last_update_date type channel_count
+GSM773540      Nov 02 2011  RNA             1
+GSM773541      Nov 02 2011  RNA             1
+GSM773542      Nov 02 2011  RNA             1
+                               source_name_ch1 organism_ch1
+GSM773540 frozen tissue of primary lung tumors Homo sapiens
+GSM773541 frozen tissue of primary lung tumors Homo sapiens
+GSM773542 frozen tissue of primary lung tumors Homo sapiens
+                 characteristics_ch1 characteristics_ch1.1
+GSM773540 tissue: primary lung tumor       age (years): 55
+GSM773541 tissue: primary lung tumor       age (years): 38
+GSM773542 tissue: primary lung tumor       age (years): 30
+          characteristics_ch1.2        characteristics_ch1.3
+GSM773540        gender: female smoking status: Never-smoker
+GSM773541        gender: female  smoking status: Ever-smoker
+GSM773542          gender: male  smoking status: Ever-smoker
+          characteristics_ch1.4  characteristics_ch1.5 characteristics_ch1.6
+GSM773540                 bi: 0 pathological stage: II      pstage iorii: II
+GSM773541               bi: 140 pathological stage: II      pstage iorii: II
+GSM773542               bi: 600 pathological stage: II      pstage iorii: II
+                         characteristics_ch1.7 characteristics_ch1.8
+GSM773540 gene alteration status: ALK-fusion +              myc: Low
+GSM773541 gene alteration status: ALK-fusion +              myc: Low
+GSM773542 gene alteration status: ALK-fusion +              myc: Low
+          characteristics_ch1.9 characteristics_ch1.10 characteristics_ch1.11
+GSM773540       myc_copy: 1.263      cluster: Cluster1      relapse: relapsed
+GSM773541       myc_copy: 1.064      cluster: Cluster1      relapse: relapsed
+GSM773542       myc_copy: 1.192      cluster: Cluster1  relapse: not relapsed
+                    characteristics_ch1.12
+GSM773540  days before relapse/censor: 253
+GSM773541   days before relapse/censor: 57
+GSM773542 days before relapse/censor: 2601
+                                  characteristics_ch1.13 characteristics_ch1.14
+GSM773540 months before relapse/censor: 8.43333333333333            death: dead
+GSM773541              months before relapse/censor: 1.9           death: alive
+GSM773542             months before relapse/censor: 86.7           death: alive
+                  characteristics_ch1.15
+GSM773540  days before death/censor: 437
+GSM773541  days before death/censor: 743
+GSM773542 days before death/censor: 2601
+                                  characteristics_ch1.16
+GSM773540 months before relapse/censor: 14.5666666666667
+GSM773541 months before relapse/censor: 24.7666666666667
+GSM773542             months before relapse/censor: 86.7
+                                                                           characteristics_ch1.17
+GSM773540 exclude for prognosis analysis due to incomplete resection or adjuvant therapy: exclude
+GSM773541    exclude for prognosis analysis due to incomplete resection or adjuvant therapy: none
+GSM773542    exclude for prognosis analysis due to incomplete resection or adjuvant therapy: none
+          characteristics_ch1.18 molecule_ch1
+GSM773540                           total RNA
+GSM773541                           total RNA
+GSM773542                           total RNA
+                                                     extract_protocol_ch1
+GSM773540 Trizol extraction according to the manufacturer's instructions.
+GSM773541 Trizol extraction according to the manufacturer's instructions.
+GSM773542 Trizol extraction according to the manufacturer's instructions.
+          label_ch1
+GSM773540    Biotin
+GSM773541    Biotin
+GSM773542    Biotin
+                                                                              label_protocol_ch1
+GSM773540 100ng of total RNA was labeled using a Two-Cycle Target Labeling and Control Reagents.
+GSM773541 100ng of total RNA was labeled using a Two-Cycle Target Labeling and Control Reagents.
+GSM773542 100ng of total RNA was labeled using a Two-Cycle Target Labeling and Control Reagents.
+          taxid_ch1
+GSM773540      9606
+GSM773541      9606
+GSM773542      9606
+                                                                                                                                  hyb_protocol
+GSM773540 Following fragmentation, cRNA was hybridized on the GeneChip Human U133 Plus 2.0 array according to the Affymetrix standard protcol.
+GSM773541 Following fragmentation, cRNA was hybridized on the GeneChip Human U133 Plus 2.0 array according to the Affymetrix standard protcol.
+GSM773542 Following fragmentation, cRNA was hybridized on the GeneChip Human U133 Plus 2.0 array according to the Affymetrix standard protcol.
+                                                                scan_protocol
+GSM773540 GeneChips were scanned using the Affymetrix GeneArray scanner 3000.
+GSM773541 GeneChips were scanned using the Affymetrix GeneArray scanner 3000.
+GSM773542 GeneChips were scanned using the Affymetrix GeneArray scanner 3000.
+                                         description
+GSM773540 Gene expression data from primary lung ADC
+GSM773541 Gene expression data from primary lung ADC
+GSM773542 Gene expression data from primary lung ADC
+                                           data_processing platform_id
+GSM773540 The data were normalized by the MAS5 algorhythm.      GPL570
+GSM773541 The data were normalized by the MAS5 algorhythm.      GPL570
+GSM773542 The data were normalized by the MAS5 algorhythm.      GPL570
+            contact_name     contact_email
+GSM773540 Takashi,,Kohno tkkohno@ncc.go.jp
+GSM773541 Takashi,,Kohno tkkohno@ncc.go.jp
+GSM773542 Takashi,,Kohno tkkohno@ncc.go.jp
+                                  contact_institute contact_address
+GSM773540 National Cancer Center Research Institute   5-1-1 Tsukiji
+GSM773541 National Cancer Center Research Institute   5-1-1 Tsukiji
+GSM773542 National Cancer Center Research Institute   5-1-1 Tsukiji
+          contact_city contact_zip/postal_code contact_country
+GSM773540      Chuo-ku                104-0045           Japan
+GSM773541      Chuo-ku                104-0045           Japan
+GSM773542      Chuo-ku                104-0045           Japan
+                                                                         supplementary_file
+GSM773540 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM773nnn/GSM773540/suppl/GSM773540.CEL.gz
+GSM773541 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM773nnn/GSM773541/suppl/GSM773541.CEL.gz
+GSM773542 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM773nnn/GSM773542/suppl/GSM773542.CEL.gz
+          data_row_count age (years):ch1 age:ch1 bi:ch1 cluster:ch1
+GSM773540          54675              55    <NA>      0    Cluster1
+GSM773541          54675              38    <NA>    140    Cluster1
+GSM773542          54675              30    <NA>    600    Cluster1
+          days before death/censor:ch1 days before relapse/censor:ch1 death:ch1
+GSM773540                          437                            253      dead
+GSM773541                          743                             57     alive
+GSM773542                         2601                           2601     alive
+          exclude for prognosis analysis due to incomplete resection or adjuvant therapy:ch1
+GSM773540                                                                            exclude
+GSM773541                                                                               none
+GSM773542                                                                               none
+          gender:ch1 gene alteration status:ch1 group:ch1
+GSM773540     female               ALK-fusion +      <NA>
+GSM773541     female               ALK-fusion +      <NA>
+GSM773542       male               ALK-fusion +      <NA>
+           months before relapse/censor:ch1 myc_copy:ch1 myc:ch1
+GSM773540 8.43333333333333;14.5666666666667        1.263     Low
+GSM773541              1.9;24.7666666666667        1.064     Low
+GSM773542                         86.7;86.7        1.192     Low
+          pathological stage:ch1 pstage iorii:ch1  relapse:ch1
+GSM773540                     II               II     relapsed
+GSM773541                     II               II     relapsed
+GSM773542                     II               II not relapsed
+          smoking status:ch1         tissue:ch1
+GSM773540       Never-smoker primary lung tumor
+GSM773541        Ever-smoker primary lung tumor
+GSM773542        Ever-smoker primary lung tumor
+
+===== 'characteristics_ch1' COLUMNS FOUND: 19 =====
+
+--- characteristics_ch1 (first 3 unique values) ---
+[1] "tissue: primary lung tumor" "tissue: normal lung"       
+
+--- characteristics_ch1.1 (first 3 unique values) ---
+[1] "age (years): 55" "age (years): 38" "age (years): 30"
+
+--- characteristics_ch1.2 (first 3 unique values) ---
+[1] "gender: female" "gender: male"  
+
+--- characteristics_ch1.3 (first 3 unique values) ---
+[1] "smoking status: Never-smoker" "smoking status: Ever-smoker" 
+
+--- characteristics_ch1.4 (first 3 unique values) ---
+[1] "bi: 0"   "bi: 140" "bi: 600"
+
+--- characteristics_ch1.5 (first 3 unique values) ---
+[1] "pathological stage: II" "pathological stage: IA" "pathological stage: IB"
+
+--- characteristics_ch1.6 (first 3 unique values) ---
+[1] "pstage iorii: II" "pstage iorii: I"  ""                
+
+--- characteristics_ch1.7 (first 3 unique values) ---
+[1] "gene alteration status: ALK-fusion +"   
+[2] "gene alteration status: KRAS mutation +"
+[3] "gene alteration status: EGFR/KRAS/ALK -"
+
+--- characteristics_ch1.8 (first 3 unique values) ---
+[1] "myc: Low"  "myc: nd"   "myc: High"
+
+--- characteristics_ch1.9 (first 3 unique values) ---
+[1] "myc_copy: 1.263" "myc_copy: 1.064" "myc_copy: 1.192"
+
+--- characteristics_ch1.10 (first 3 unique values) ---
+[1] "cluster: Cluster1"     "relapse: relapsed"     "relapse: not relapsed"
+
+--- characteristics_ch1.11 (first 3 unique values) ---
+[1] "relapse: relapsed"                "relapse: not relapsed"           
+[3] "days before relapse/censor: 1359"
+
+--- characteristics_ch1.12 (first 3 unique values) ---
+[1] "days before relapse/censor: 253"  "days before relapse/censor: 57"  
+[3] "days before relapse/censor: 2601"
+
+--- characteristics_ch1.13 (first 3 unique values) ---
+[1] "months before relapse/censor: 8.43333333333333"
+[2] "months before relapse/censor: 1.9"             
+[3] "months before relapse/censor: 86.7"            
+
+--- characteristics_ch1.14 (first 3 unique values) ---
+[1] "death: dead"                    "death: alive"                  
+[3] "days before death/censor: 1841"
+
+--- characteristics_ch1.15 (first 3 unique values) ---
+[1] "days before death/censor: 437"  "days before death/censor: 743" 
+[3] "days before death/censor: 2601"
+
+--- characteristics_ch1.16 (first 3 unique values) ---
+[1] "months before relapse/censor: 14.5666666666667"
+[2] "months before relapse/censor: 24.7666666666667"
+[3] "months before relapse/censor: 86.7"            
+
+--- characteristics_ch1.17 (first 3 unique values) ---
+[1] "exclude for prognosis analysis due to incomplete resection or adjuvant therapy: exclude"
+[2] "exclude for prognosis analysis due to incomplete resection or adjuvant therapy: none"   
+[3] ""                                                                                       
+
+--- characteristics_ch1.18 (first 3 unique values) ---
+[1] ""                                                                                       
+[2] "exclude for prognosis analysis due to incomplete resection or adjuvant therapy: none"   
+[3] "exclude for prognosis analysis due to incomplete resection or adjuvant therapy: exclude"
+
+Saved gse31210_raw.rds and gse31210_pdata.rds — DO NOT proceed to harmonization until we've reviewed this output.

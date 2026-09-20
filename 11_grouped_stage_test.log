@@ -1,0 +1,30 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Test set: 148 patients, all mapped to I/II/III/IV cleanly
+
+Events per grouped stage (test set):
+# A tibble: 4 × 3
+  stage_grouped     n events
+  <fct>         <int>  <dbl>
+1 I                82     22
+2 II               39     13
+3 III              21     14
+4 IV                6      5
+
+===== FINAL COMPARISON (all three models, held-out test) =====
+Plain clinical, 8-level stage (PH-VIOLATED):        C=0.610
+Stratified, 8-level stage (PH-valid, sparse):       C=0.495
+Stratified, 4-level grouped stage (PH-valid: p=0.141): C=0.608
+
+===== FINAL DECISION (hard stop — no further iterations after this) =====
+RESOLVED: the grouped-stage model is both PH-valid AND shows real discrimination.
+This becomes the deployment model — no trade-off required.

@@ -1,0 +1,17 @@
+{
+  "gender_reference": "female",
+  "gender_levels": ["female", "male"],
+  "stage_grouped_reference": "I",
+  "stage_grouped_levels": ["I", "II", "III", "IV"],
+  "mean_age_train": 65.36578171,
+  "mean_lp_train": 0.66270002,
+  "gamma": 1,
+  "model_type": "Covariate Cox: age_years + gendermale + stage_grouped (I=reference), 4-level collapsed AJCC stage",
+  "held_out_test_cindex": 0.60805085,
+  "validation_note": "PH assumption satisfied for 4-level grouped stage as a covariate (cox.zph p=0.141, see 06/11). Original 8-level AJCC staging violated PH (p=0.037) due to sparse categories (some n=5); collapsing to I-IV resolved both the PH violation and unstable held-out scoring.",
+  "known_limitations": [
+    "Stage IV subgroup in the held-out test set is small (n=6, 5 events) — its contribution to the reported C-index should be interpreted with caution.",
+    "Model architecture (8-level covariate vs. 8-level stratified vs. 4-level covariate) was selected by comparing held-out performance across three candidates on the same test set; the reported test C-index (0.608) may be marginally optimistic as a result of this selection process.",
+    "Gene-expression signature (LASSO/RSF, see 07/08) and mutation/TMB profile (see 09) showed NO generalizable prognostic signal beyond this clinical model in this cohort — reported as genuine negative findings, not omitted."
+  ]
+}

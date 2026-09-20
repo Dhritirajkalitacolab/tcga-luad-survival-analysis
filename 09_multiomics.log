@@ -1,0 +1,76 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Querying MAF data for TCGA-LUAD...
+--------------------------------------
+o GDCquery: Searching in GDC database
+--------------------------------------
+Genome of reference: hg38
+--------------------------------------------
+oo Accessing GDC. This might take a while...
+--------------------------------------------
+ooo Project: TCGA-LUAD
+--------------------
+oo Filtering results
+--------------------
+ooo By data.type
+----------------
+oo Checking data
+----------------
+ooo Checking if there are duplicated cases
+ooo Checking if there are results for the query
+-------------------
+o Preparing output
+-------------------
+Available variant-calling pipelines:
+
+Aliquot Ensemble Somatic Variant Merging and Masking 
+                                                 618 
+
+618 total records — ensemble caller, already deduplicated upstream.
+Downloading data for project TCGA-LUAD
+Of the 618 files for download 618 already exist.
+All samples have been already downloaded
+-Validating
+-Silent variants: 47915 
+-Summarizing
+--Possible FLAGS among top ten genes:
+  TTN
+  MUC16
+  USH2A
+  FLG
+-Processing clinical data
+--Missing clinical data
+-Finished in 7.943s elapsed (6.262s cpu) 
+MAF loaded: 194729 mutation records, 616 unique samples
+Driver genes found in MAF: EGFR, KRAS, STK11, KEAP1, TP53
+
+===== MOLECULAR COVERAGE =====
+Train: 339/348 patients matched to MAF data
+Test set contains stage(s) not seen in training: Stage II
+Dropping 1 test patients with unseen stage levels (cannot score them against a stratified model)
+Test set for scoring: 147 patients (stage-consistent with training)
+Both models fit on n=339 patients (LRT comparison is valid)
+
+===== CLINICAL vs CLINICAL+MOLECULAR (test C-index) =====
+Clinical only (validated, from 06):      test C=0.495
+Clinical + TMB + driver mutations:        test C=0.491
+
+===== LIKELIHOOD RATIO TEST (train, does molecular data add fit?) =====
+Analysis of Deviance Table
+ Cox model: response is  Surv(OS.time, OS)
+ Model 1: ~ age_years + gender + strata(ajcc_pathologic_stage)
+ Model 2: ~ age_years + gender + strata(ajcc_pathologic_stage) + EGFR_mutated + KRAS_mutated + STK11_mutated + KEAP1_mutated + TP53_mutated + TMB
+   loglik  Chisq Df Pr(>|Chi|)
+1 -364.34                     
+2 -360.30 8.0927  6     0.2314
+
+===== P3B COMPLETE — saved p3b_multiomics.rds =====

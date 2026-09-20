@@ -1,0 +1,18 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Coefficients exported: 5 (age_years, gendermale, stage_groupedII, stage_groupedIII, stage_groupedIV)
+Model type: COVARIATE (age + gender + stage_grouped) — stage_grouped='I' is the reference level.
+Baseline survival curve (reference: Stage I, mean age, female): 304 time points
+
+===== MODEL EXPORTED (cox_grouped — covariate model, verified 5 coefficients) =====
+Coefficients: 5 | Baseline curve: 304 time points (reference: Stage I)
+Saved: models/coef.json, models/model_info.json, models/baseline_surv.csv

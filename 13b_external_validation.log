@@ -1,0 +1,49 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Tissue distribution:
+
+       normal lung primary lung tumor 
+                20                226 
+
+After tumor-only filter: 226 samples
+
+Exclusion flag distribution:
+
+exclude    none    <NA> 
+     22     204       0 
+After honoring depositors' prognosis-analysis exclusion: 204 samples
+
+Gender values found:
+
+female   male   <NA> 
+   109     95      0 
+
+Death values found:
+
+alive  dead  <NA> 
+  174    30     0 
+
+Full pathological stage distribution (BEFORE mapping):
+
+  IA   IB   II <NA> 
+ 109   53   42    0 
+
+===== FINAL EXTERNAL VALIDATION SET: 204 patients =====
+Events: 30 (14.7%)
+
+===== EXTERNAL VALIDATION RESULT (GSE31210) =====
+Via cox_grouped object:      C=0.708
+Via raw exported coef.json:  C=0.708  (cross-check, should match)
+
+For comparison — TCGA internal held-out test: C=0.608
+
+Saved p2b_external_validation.rds
